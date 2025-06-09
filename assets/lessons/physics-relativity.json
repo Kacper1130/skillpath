@@ -1,0 +1,37 @@
+{
+  "id": "physics-relativity",
+  "title": "Einstein's Theory of Relativity",
+  "content": "Einstein's theory of relativity revolutionized our understanding of space, time, and gravity. This groundbreaking theory consists of two parts: special relativity and general relativity, each with profound implications for our understanding of the universe.\n\nSpecial Relativity (1905):\n- Based on two fundamental principles:\n  1. The laws of physics are the same for all observers in uniform motion\n  2. The speed of light in vacuum is constant for all observers\n- Key consequences:\n  * Time dilation: Time passes slower for objects moving at high speeds\n  * Length contraction: Objects appear shorter in the direction of motion\n  * Mass-energy equivalence: E = mc²\n  * Relativity of simultaneity: Events that appear simultaneous to one observer may not be to another\n\nGeneral Relativity (1915):\n- Einstein's theory of gravity\n- Key concepts:\n  * Gravity is not a force but a curvature of spacetime\n  * Mass and energy cause spacetime to curve\n  * Objects follow the shortest path in curved spacetime\n  * Time passes slower in stronger gravitational fields\n\nExperimental Confirmations:\n- Gravitational lensing of light\n- Precession of Mercury's orbit\n- Gravitational waves detection\n- GPS satellite time corrections\n- Gravitational redshift\n\nImpact and Applications:\n- Modern cosmology and understanding of the universe\n- GPS navigation systems\n- Black hole physics\n- Gravitational wave astronomy\n\nThe theory of relativity has been confirmed by numerous experiments and continues to be one of the most successful theories in physics, despite its counterintuitive nature.",
+  "quiz": [
+    {
+      "question": "What is the famous equation that relates mass and energy?",
+      "answers": [
+        "F = ma",
+        "E = mc²",
+        "PV = nRT",
+        "F = G(m₁m₂)/r²"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "question": "What happens to time as an object approaches the speed of light?",
+      "answers": [
+        "Time speeds up",
+        "Time slows down",
+        "Time remains constant",
+        "Time stops"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "question": "What is the main idea of general relativity?",
+      "answers": [
+        "Gravity is a force between masses",
+        "Gravity is a curvature of spacetime",
+        "Gravity is a quantum field",
+        "Gravity is an electromagnetic effect"
+      ],
+      "correctAnswer": 1
+    }
+  ]
+} 

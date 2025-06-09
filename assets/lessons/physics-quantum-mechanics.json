@@ -1,0 +1,37 @@
+{
+  "id": "physics-quantum-mechanics",
+  "title": "Introduction to Quantum Mechanics",
+  "content": "Quantum mechanics is one of the most fascinating and fundamental theories in physics that describes the behavior of matter and energy at the atomic and subatomic scales. This revolutionary theory has completely transformed our understanding of the physical world.\n\nKey Concepts:\n\n1. Wave-Particle Duality\n- Particles like electrons and photons can exhibit both wave-like and particle-like properties\n- The double-slit experiment demonstrates this dual nature\n- When not observed, particles behave as waves and create interference patterns\n- When measured, they behave as discrete particles\n\n2. The Uncertainty Principle (Heisenberg)\n- It's impossible to know both the position and momentum of a particle with perfect precision\n- The more precisely we measure one property, the less precisely we can know the other\n- This is not due to measurement limitations but is a fundamental property of nature\n\n3. Quantum Superposition\n- Quantum systems can exist in multiple states simultaneously\n- A particle can be in multiple places or states at once until measured\n- The famous Schrödinger's cat thought experiment illustrates this concept\n- When measured, the superposition collapses to a single state\n\n4. Quantum Entanglement\n- Particles can become correlated in such a way that the quantum state of each particle cannot be described independently\n- Measuring one particle instantly affects its entangled partner, regardless of distance\n- Einstein called this 'spooky action at a distance'\n\nApplications and Impact:\n- Quantum computing and cryptography\n- Lasers and modern electronics\n- Medical imaging technologies\n- Understanding atomic and molecular structures\n\nQuantum mechanics challenges our classical understanding of the physical world and continues to be one of the most successful and accurate theories in physics, despite its counterintuitive nature.",
+  "quiz": [
+    {
+      "question": "What is wave-particle duality?",
+      "answers": [
+        "The ability of particles to move in waves",
+        "The property of quantum objects to exhibit both wave and particle characteristics",
+        "The interaction between waves and particles",
+        "The conversion of waves into particles"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Who proposed the uncertainty principle?",
+      "answers": [
+        "Albert Einstein",
+        "Niels Bohr",
+        "Werner Heisenberg",
+        "Max Planck"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "question": "What is quantum superposition?",
+      "answers": [
+        "The ability of particles to exist in multiple places at once",
+        "The combination of multiple quantum states",
+        "The interaction between quantum particles",
+        "The measurement of quantum states"
+      ],
+      "correctAnswer": 1
+    }
+  ]
+} 

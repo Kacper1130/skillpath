@@ -1,0 +1,37 @@
+{
+  "id": "physics-doppler-effect",
+  "title": "Understanding the Doppler Effect",
+  "content": "The Doppler Effect is a fundamental phenomenon in wave physics that occurs when there is relative motion between a source of waves and an observer. Named after Austrian physicist Christian Doppler, this effect has profound implications in various fields of science and technology.\n\nBasic Principles:\n- When a wave source and observer are moving relative to each other, the observed frequency changes\n- Approaching source: higher frequency (shorter wavelength)\n- Receding source: lower frequency (longer wavelength)\n- The effect occurs for all types of waves: sound, light, water waves, etc.\n\nSound Waves:\n- Most commonly observed with sound waves\n- Examples:\n  * Ambulance siren pitch change as it passes by\n  * Train whistle frequency shift\n  * Racing car engine sound variation\n- Mathematical relationship:\n  * f' = f(v ± vo)/(v ± vs)\n  * where f' is observed frequency, f is source frequency\n  * v is wave speed, vo is observer speed, vs is source speed\n\nLight Waves (Relativistic Doppler Effect):\n- Redshift: light source moving away (longer wavelength)\n- Blueshift: light source moving toward (shorter wavelength)\n- Applications in astronomy:\n  * Measuring star and galaxy velocities\n  * Determining universe expansion\n  * Detecting exoplanets\n\nPractical Applications:\n1. Medical Imaging:\n   - Doppler ultrasound for blood flow measurement\n   - Fetal heart monitoring\n   - Vascular studies\n\n2. Weather Radar:\n   - Storm tracking\n   - Wind speed measurement\n   - Precipitation detection\n\n3. Traffic Monitoring:\n   - Speed detection\n   - Traffic flow analysis\n\n4. Astronomy:\n   - Star velocity measurement\n   - Galaxy movement studies\n   - Universe expansion evidence\n\n5. Navigation:\n   - GPS systems\n   - Sonar technology\n   - Radar systems\n\nThe Doppler Effect is a crucial concept that bridges classical and modern physics, with applications ranging from everyday observations to cutting-edge scientific research.",
+  "quiz": [
+    {
+      "question": "What happens to the frequency of sound waves when a source moves toward an observer?",
+      "answers": [
+        "The frequency decreases",
+        "The frequency increases",
+        "The frequency remains the same",
+        "The frequency becomes zero"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Which of the following is NOT an application of the Doppler Effect?",
+      "answers": [
+        "Weather radar",
+        "Medical ultrasound",
+        "Digital cameras",
+        "Astronomical redshift"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "question": "What is the main cause of the Doppler Effect?",
+      "answers": [
+        "Wave interference",
+        "Wave reflection",
+        "Relative motion between source and observer",
+        "Wave diffraction"
+      ],
+      "correctAnswer": 2
+    }
+  ]
+} 
