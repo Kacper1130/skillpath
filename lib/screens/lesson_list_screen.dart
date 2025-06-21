@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skillpath/services/auth_service.dart';
 import '../models/lesson.dart';
 import '../services/lesson_service.dart';
 import '../services/history_service.dart';
@@ -14,6 +15,7 @@ class LessonListScreen extends StatefulWidget {
 class _LessonListScreenState extends State<LessonListScreen> {
   final _lessonService = LessonService();
   final _historyService = HistoryService();
+  final AuthService _authService = AuthService();
   List<Map<String, dynamic>> _lessons = [];
   bool _isLoading = true;
 
@@ -47,6 +49,17 @@ class _LessonListScreenState extends State<LessonListScreen> {
     final colorScheme = Theme.of(context).colorScheme;
     
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Lessons'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () async {
+              await _authService.signOut();
+            },
+          ),
+        ],
+      ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -65,7 +78,7 @@ class _LessonListScreenState extends State<LessonListScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Welcome to SkillPath',
+                  'Welcome back!',
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: colorScheme.onSurface,
