@@ -101,16 +101,17 @@ class _LessonScreenState extends State<LessonScreen> with SingleTickerProviderSt
         });
         _animationController.forward();
 
-        // Calculate score and update progress
+        // Calculate score and save to history
         final correctAnswers = results.where((result) => result).length;
-        final score = (correctAnswers / lesson!.quiz.length * 100).round();
-        
-        // Update progress
-        _historyService.updateQuizScore(lesson!, score);
-        _historyService.markLessonCompleted(lesson!);
+        _historyService.saveQuizAttempt(
+          lesson!.id,
+          correctAnswers,
+          lesson!.quiz.length,
+        );
         
         // Notify parent
-        widget.onQuizCompleted?.call(score);
+        final scorePercentage = (correctAnswers / lesson!.quiz.length * 100).round();
+        widget.onQuizCompleted?.call(scorePercentage);
       });
     }
   }

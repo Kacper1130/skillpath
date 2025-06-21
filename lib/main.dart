@@ -1,12 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:skillpath/screens/auth_wrapper.dart';
 import 'firebase_options.dart';
 import 'screens/lesson_list_screen.dart';
 import 'screens/history_screen.dart';
-import 'services/history_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,12 +14,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   
-  // Initialize Hive
-  await Hive.initFlutter();
-  
-  // Initialize history service
-  final historyService = HistoryService();
-  await historyService.initialize();
+  // No longer need to initialize Hive or HistoryService here
   
   runApp(const MyApp());
 }

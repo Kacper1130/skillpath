@@ -1,76 +1,68 @@
 // History Service - manages lesson completion history and quiz attempts
-import 'package:hive_flutter/hive_flutter.dart';
-import '../models/lesson.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HistoryService {
-  static const String _progressBoxName = 'progress';
-  static const String _completedLessonsKey = 'completedLessons';
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  Future<void> initialize() async {
-    await Hive.openBox<Map>(_progressBoxName);
+  String? get _userId => _auth.currentUser?.uid;
+
+  CollectionReference<Map<String, dynamic>>? get _historyCollection {
+    final uid = _userId;
+    if (uid == null) return null;
+    return _firestore.collection('users').doc(uid).collection('history');
   }
 
-  Future<void> markLessonCompleted(Lesson lesson) async {
-    final box = Hive.box<Map>(_progressBoxName);
-    final completedLessons = await getCompletedLessons();
-    
-    if (!completedLessons.contains(lesson.id)) {
-      completedLessons.add(lesson.id);
-      await box.put(_completedLessonsKey, {'lessons': completedLessons});
-    }
-  }
+  Future<void> saveQuizAttempt(String lessonId, int score, int totalQuestions) async {
+    final collection = _historyCollection;
+    if (collection == null) return;
 
-  Future<List<String>> getCompletedLessons() async {
-    final box = Hive.box<Map>(_progressBoxName);
-    final data = box.get(_completedLessonsKey);
-    if (data != null && data['lessons'] != null) {
-      return List<String>.from(data['lessons']);
-    }
-    return [];
-  }
-
-  Future<List<Map<String, dynamic>>> getProgressForLesson(String lessonId) async {
-    final box = Hive.box<Map>(_progressBoxName);
-    final progress = box.get(lessonId);
-    if (progress != null && progress['attempts'] != null) {
-      return List<Map<String, dynamic>>.from(progress['attempts']);
-    }
-    return [];
-  }
-
-  Future<void> updateQuizScore(Lesson lesson, int score) async {
-    final box = Hive.box<Map>(_progressBoxName);
-    final attempts = await getProgressForLesson(lesson.id);
-    
-    attempts.add({
+    await collection.add({
+      'lessonId': lessonId,
       'score': score,
-      'timestamp': DateTime.now().toIso8601String(),
+      'totalQuestions': totalQuestions,
+      'percentage': ((score / totalQuestions) * 100).round(),
+      'timestamp': FieldValue.serverTimestamp(),
     });
+  }
 
-    await box.put(lesson.id, {
-      'attempts': attempts,
-      'lastAttempt': DateTime.now().toIso8601String(),
-      'bestScore': attempts.map((a) => a['score'] as int).reduce((a, b) => a > b ? a : b),
-    });
+  Future<List<Map<String, dynamic>>> getFullHistory() async {
+    final collection = _historyCollection;
+    if (collection == null) return [];
+
+    final snapshot = await collection.orderBy('timestamp', descending: true).get();
+    
+    return snapshot.docs.map((doc) {
+      final data = doc.data();
+      data['id'] = doc.id;
+      return data;
+    }).toList();
   }
 
   Future<Map<String, dynamic>> getLessonStats(String lessonId) async {
-    final attempts = await getProgressForLesson(lessonId);
-    if (attempts.isEmpty) {
-      return {
-        'bestScore': 0,
-        'averageScore': 0,
-        'attemptsCount': 0,
-        'lastAttempt': null,
-      };
+    final collection = _historyCollection;
+    if (collection == null) {
+      return {'attemptsCount': 0, 'bestScore': 0};
     }
 
-    final scores = attempts.map((a) => a['score'] as int).toList();
+    final snapshot = await collection.where('lessonId', isEqualTo: lessonId).get();
+
+    if (snapshot.docs.isEmpty) {
+      return {'attemptsCount': 0, 'bestScore': 0};
+    }
+
+    int bestScore = 0;
+    for (final doc in snapshot.docs) {
+      final percentage = doc.data()['percentage'] as int?;
+      if (percentage != null && percentage > bestScore) {
+        bestScore = percentage;
+      }
+    }
+
     return {
-      'bestScore': scores.reduce((a, b) => a > b ? a : b),
-      'averageScore': (scores.reduce((a, b) => a + b) / scores.length).round(),
-      'attemptsCount': scores.length,
-      'lastAttempt': attempts.last['timestamp'],
+      'attemptsCount': snapshot.docs.length,
+      'bestScore': bestScore,
     };
   }
 } 
