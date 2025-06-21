@@ -117,6 +117,7 @@ class _LessonListScreenState extends State<LessonListScreen> {
                                     MaterialPageRoute(
                                       builder: (context) => LessonScreen(
                                         lessonId: lesson.id,
+                                        onQuizCompleted: (_) => _loadLessons(),
                                       ),
                                     ),
                                   );

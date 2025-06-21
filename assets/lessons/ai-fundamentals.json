@@ -1,0 +1,47 @@
+{
+  "id": "ai-fundamentals",
+  "title": "AI Fundamentals",
+  "content": "Artificial Intelligence (AI) is a broad field of computer science that focuses on creating systems capable of performing tasks that typically require human intelligence. These tasks include learning, reasoning, problem-solving, perception, and language understanding.\n\nKey Concepts:\n- Machine Learning (ML): A subset of AI where systems learn from data to improve performance on a task without being explicitly programmed. Algorithms are trained on large datasets to find patterns.\n- Deep Learning (DL): A subset of ML based on artificial neural networks with multiple layers (deep neural networks). It has led to breakthroughs in areas like image recognition and natural language processing.\n- Natural Language Processing (NLP): A field of AI that enables computers to understand, interpret, and generate human language.\n- Computer Vision: An area of AI that trains computers to interpret and understand the visual world from digital images or videos.\n\nTypes of AI:\n- Narrow AI (Weak AI): Designed and trained for a particular task (e.g., virtual assistants, image recognition).\n- General AI (Strong AI): A theoretical form of AI where a machine would have intelligence equal to humans; it would have a self-aware consciousness with the ability to solve problems, learn, and plan for the future.\n\nApplications:\n- Healthcare: Disease diagnosis, personalized treatment plans.\n- Finance: Algorithmic trading, fraud detection.\n- Transportation: Self-driving cars, route optimization.\n- Entertainment: Recommendation engines, generative art and music.",
+  "quiz": [
+    {
+      "question": "What is the subset of AI that involves systems learning from data?",
+      "answers": [
+        "Deep Learning",
+        "Natural Language Processing",
+        "Machine Learning",
+        "Computer Vision"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "question": "Which type of AI is designed for a specific task?",
+      "answers": [
+        "General AI",
+        "Strong AI",
+        "Super AI",
+        "Narrow AI"
+      ],
+      "correctAnswer": 3
+    },
+    {
+      "question": "Deep Learning is based on which of the following?",
+      "answers": [
+        "Decision Trees",
+        "Support Vector Machines",
+        "Artificial Neural Networks",
+        "Linear Regression"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "question": "Which field of AI helps computers understand human language?",
+      "answers": [
+        "Computer Vision",
+        "Robotics",
+        "Natural Language Processing",
+        "Expert Systems"
+      ],
+      "correctAnswer": 2
+    }
+  ]
+} 
